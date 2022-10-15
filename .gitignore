@@ -1,0 +1,13 @@
+# Enviroments
+.venv
+venv/
+.env
+env/
+
+# Python
+*.pyc
+*__pycache__
+
+# Pycharm
+.idea/
+
