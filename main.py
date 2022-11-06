@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication
 
-from apps.sign_in_widget import SignInWidget
+from apps.sign_in.sign_in_widget import SignInWidget
 
 
 def except_hook(cls, exception, traceback):

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>Account</class>
+ <widget class="QDialog" name="Account">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>740</width>
+    <width>553</width>
     <height>433</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="load_picture_button">
    <property name="geometry">
     <rect>
-     <x>630</x>
-     <y>170</y>
+     <x>0</x>
+     <y>240</y>
      <width>113</width>
      <height>41</height>
     </rect>
@@ -26,11 +26,11 @@
     <string>Load picture</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="picture_label">
    <property name="geometry">
     <rect>
-     <x>510</x>
-     <y>0</y>
+     <x>0</x>
+     <y>60</y>
      <width>231</width>
      <height>161</height>
     </rect>
@@ -39,12 +39,12 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;Your picture (.png)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="login_label">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>0</x>
      <y>10</y>
-     <width>721</width>
+     <width>551</width>
      <height>31</height>
     </rect>
    </property>
@@ -52,11 +52,11 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;Login&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="email_label">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>250</y>
+     <x>0</x>
+     <y>310</y>
      <width>60</width>
      <height>31</height>
     </rect>
@@ -65,11 +65,11 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Email:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="email_edit">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>250</y>
+     <x>60</x>
+     <y>310</y>
      <width>181</width>
      <height>31</height>
     </rect>
@@ -78,11 +78,11 @@
     <string>some_mail@mail.ru</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
+  <widget class="QPushButton" name="delete_acc_button">
    <property name="geometry">
     <rect>
-     <x>580</x>
-     <y>360</y>
+     <x>10</x>
+     <y>370</y>
      <width>131</width>
      <height>51</height>
     </rect>
@@ -91,11 +91,11 @@
     <string>Delete account</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_7">
+  <widget class="QPushButton" name="text_notes_button">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>60</y>
+     <x>360</x>
+     <y>100</y>
      <width>181</width>
      <height>101</height>
     </rect>
@@ -104,11 +104,11 @@
     <string>Text notes</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_8">
+  <widget class="QPushButton" name="table_notes_button">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>170</y>
+     <x>360</x>
+     <y>210</y>
      <width>181</width>
      <height>101</height>
     </rect>
@@ -117,17 +117,30 @@
     <string>Table notes</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_9">
+  <widget class="QPushButton" name="calendar_notes_button">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>280</y>
+     <x>360</x>
+     <y>320</y>
      <width>181</width>
      <height>101</height>
     </rect>
    </property>
    <property name="text">
     <string>Calendar notes</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="types_of_the_notes_label">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>70</y>
+     <width>181</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; text-decoration: underline;&quot;&gt;Types of the notes&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>
