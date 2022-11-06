@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Recovery</class>
+ <widget class="QDialog" name="Recovery">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>481</width>
+    <height>356</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="login_recovery_label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>80</y>
+     <width>145</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Login&lt;/span&gt;&lt;span style=&quot; font-size:18pt; color:#fa3737; vertical-align:super;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="password_recovery_label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>150</y>
+     <width>145</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Password&lt;span style=&quot;color: rgb(250, 55, 55);&quot;&gt;*&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="login_recovery_edit">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>100</y>
+     <width>181</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>40</width>
+     <height>68</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="recovery_name">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>0</y>
+     <width>211</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;Password recovery&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="password_recovery_edit">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>170</y>
+     <width>181</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>40</width>
+     <height>68</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="password2_recovery_edit">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>210</y>
+     <width>181</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>40</width>
+     <height>68</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="finger_recovery_label">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>40</y>
+     <width>251</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>+88_________________+880_______
+_+880_______________++80_______
+_++88______________+880________
+_++88_____________++88________
+__+880___________++88_________
+__+888_________++880__________
+__++880_______++880___________
+__++888_____+++880____________
+__++8888__+++8880++88_________
+__+++8888+++8880++8888________
+___++888++8888+++888888+80____
+___++88++8888++8888888++888___
+___++++++888888fx88888888888___
+____++++++88888888888888888___
+____++++++++000888888888888___
+_____+++++++00008f8888888888___
+______+++++++00088888888888___
+_______+++++++0888f8888888
+</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="recovery_button">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>280</y>
+     <width>113</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Recover</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

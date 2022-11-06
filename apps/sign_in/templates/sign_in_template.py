@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'sign_in.ui'
+# Form implementation generated from reading ui file 'apps/sign_in/templates/sign_in.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -19,7 +19,7 @@ class Ui_SigningIn(object):
         self.project_name.setGeometry(QtCore.QRect(210, 0, 221, 41))
         self.project_name.setObjectName("project_name")
         self.sign_up_button = QtWidgets.QPushButton(SigningIn)
-        self.sign_up_button.setGeometry(QtCore.QRect(470, 50, 121, 41))
+        self.sign_up_button.setGeometry(QtCore.QRect(470, 50, 131, 41))
         self.sign_up_button.setObjectName("sign_up_button")
         self.login_sign_in_edit = QtWidgets.QLineEdit(SigningIn)
         self.login_sign_in_edit.setGeometry(QtCore.QRect(250, 130, 181, 31))
@@ -38,6 +38,9 @@ class Ui_SigningIn(object):
         self.sign_in_button = QtWidgets.QPushButton(SigningIn)
         self.sign_in_button.setGeometry(QtCore.QRect(152, 260, 291, 51))
         self.sign_in_button.setObjectName("sign_in_button")
+        self.forgot_password_button = QtWidgets.QPushButton(SigningIn)
+        self.forgot_password_button.setGeometry(QtCore.QRect(230, 310, 141, 41))
+        self.forgot_password_button.setObjectName("forgot_password_button")
 
         self.user_not_found_status_bar = QtWidgets.QStatusBar(SigningIn)
         self.user_not_found_status_bar.setObjectName("statusbar")
@@ -54,3 +57,4 @@ class Ui_SigningIn(object):
         self.login_sign_in_label.setText(_translate("SigningIn", "<html><head/><body><p><span style=\" font-size:18pt;\">Login:</span></p></body></html>"))
         self.password_sign_in_label.setText(_translate("SigningIn", "<html><head/><body><p><span style=\" font-size:18pt;\">Password:</span></p></body></html>"))
         self.sign_in_button.setText(_translate("SigningIn", "Sign in"))
+        self.forgot_password_button.setText(_translate("SigningIn", "Forgot password?"))

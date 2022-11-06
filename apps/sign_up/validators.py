@@ -51,6 +51,8 @@ def validate_agreement(agreement, con=None):
 
 def validate_login(login, con):
     login = login.strip()
+    if not login:
+        raise ValidationError('Not valid login')
     request = f'''SELECT login from users
                   WHERE login = '{login}' '''
     data = con.execute(request).fetchall()

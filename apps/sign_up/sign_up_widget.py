@@ -14,6 +14,8 @@ class SignUpWidget(QMainWindow, Ui_SigningUp):
         self.password_sign_up_edit.setEchoMode(QLineEdit.Password)
         self.password2_sign_up_edit.setEchoMode(QLineEdit.Password)
         self.sign_up_confirm_button.clicked.connect(self.registrate_user)
+        self.password_sign_up_edit.setPlaceholderText('Enter the password')
+        self.password2_sign_up_edit.setPlaceholderText('Repeat the password')
         self.form = None
 
     def registrate_user(self):

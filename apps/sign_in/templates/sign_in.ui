@@ -31,7 +31,7 @@
     <rect>
      <x>470</x>
      <y>50</y>
-     <width>121</width>
+     <width>131</width>
      <height>41</height>
     </rect>
    </property>
@@ -108,6 +108,19 @@
    </property>
    <property name="text">
     <string>Sign in</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="forgot_password_button">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>310</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Forgot password?</string>
    </property>
   </widget>
  </widget>
