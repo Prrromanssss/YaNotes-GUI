@@ -1,3 +1,5 @@
+import sqlite3
+
 from PIL import Image
 from PyQt5 import QtCore
 from PyQt5.QtGui import QFont, QPixmap
@@ -26,17 +28,30 @@ class AccountWidget(QMainWindow, Ui_Account):
         self.load_picture_button.clicked.connect(self.load_picture)
         self.form = None
 
+    @staticmethod
+    def insert_image(file, login):
+        con = sqlite3.connect('YaNotes.sqlite3')
+        request = f'''UPDATE users
+                     SET image = '{file}'
+                     WHERE login = '{login}' '''
+        con.execute(request)
+        con.commit()
+
     def load_picture(self):
         file = QFileDialog.getOpenFileName(
             self,
             'Выбрать картинку', '',
             'Картинка (*.png)'
         )[0]
-        self.picture_label.setPixmap(QPixmap(file))
-        # im = Image.open(file)
-        # im.save('media/')
-        # print(file)
-        # ToDo: insert into database
+
+        if file:
+            self.picture_label.setPixmap(QPixmap(file))
+            login = self.login_label.text()
+            im = Image.open(file)
+            image = f'media/{login}.png'
+            im.save(image)
+
+            self.insert_image(image, login)
 
     def delete_account(self):
         login = self.login_label.text()

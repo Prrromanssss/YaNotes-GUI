@@ -67,7 +67,7 @@ class SignUpWidget(QMainWindow, Ui_SigningUp):
         self.form.show()
         self.hide()
 
-    def validate_show_message(self, *data, validate_func, con):
+    def validate_show_message(self, *data, validate_func, con=None):
         try:
             data = validate_func(*data, con)
         except ValidationError as e:
