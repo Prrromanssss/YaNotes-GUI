@@ -1,7 +1,10 @@
-from .templates.account_template import Ui_Account
-from PyQt5.QtWidgets import QMainWindow, QFileDialog
-from PyQt5.QtGui import QPixmap, QFont
+from PIL import Image
 from PyQt5 import QtCore
+from PyQt5.QtGui import QFont, QPixmap
+from PyQt5.QtWidgets import QFileDialog, QMainWindow
+
+from .delete_account_widget import DeleteAccount
+from .templates.account_template import Ui_Account
 
 
 class AccountWidget(QMainWindow, Ui_Account):
@@ -21,12 +24,24 @@ class AccountWidget(QMainWindow, Ui_Account):
         self.calendar_notes_button.clicked.connect(self.calendar_notes)
         self.table_notes_button.clicked.connect(self.table_notes)
         self.load_picture_button.clicked.connect(self.load_picture)
+        self.form = None
 
     def load_picture(self):
-        ...
+        file = QFileDialog.getOpenFileName(
+            self,
+            'Выбрать картинку', '',
+            'Картинка (*.png)'
+        )[0]
+        self.picture_label.setPixmap(QPixmap(file))
+        # im = Image.open(file)
+        # im.save('media/')
+        # print(file)
+        # ToDo: insert into database
 
     def delete_account(self):
-        ...
+        login = self.login_label.text()
+        self.form = DeleteAccount(self, login)
+        self.form.show()
 
     def text_notes(self):
         ...

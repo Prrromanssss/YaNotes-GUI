@@ -1,9 +1,12 @@
 import sqlite3
-from .templates.sign_up_template import Ui_SigningUp
-from .validators import validate_email, validate_password, validate_agreement
-from .validators import validate_login, ValidationError
-from PyQt5.QtWidgets import QMainWindow, QLineEdit
+
+from PyQt5.QtWidgets import QLineEdit, QMainWindow
+
 from ..account.account_widget import AccountWidget
+from ..core.exceptions import ValidationError
+from .templates.sign_up_template import Ui_SigningUp
+from .validators import (validate_agreement, validate_email, validate_login,
+                         validate_password)
 
 
 class SignUpWidget(QMainWindow, Ui_SigningUp):
@@ -18,6 +21,14 @@ class SignUpWidget(QMainWindow, Ui_SigningUp):
         self.password2_sign_up_edit.setPlaceholderText('Repeat the password')
         self.form = None
 
+    @staticmethod
+    def insert_new_user(login, password, email):
+        con = sqlite3.connect('YaNotes.sqlite3')
+        request = f'''INSERT INTO users ('login', 'password', 'email')
+                      VALUES ('{login}', '{password}', '{email}')'''
+        con.execute(request)
+        con.commit()
+
     def registrate_user(self):
         con = sqlite3.connect('YaNotes.sqlite3')
 
@@ -27,18 +38,29 @@ class SignUpWidget(QMainWindow, Ui_SigningUp):
         email = self.email_sign_up_edit.text()
         agreement = self.confirm_personal_data_checkbox.isChecked()
 
-        login = self.validate_show_message(login, validate_func=validate_login, con=con)
-        email = self.validate_show_message(email, validate_func=validate_email, con=con)
-        password = self.validate_show_message(password1, password2, validate_func=validate_password, con=con)
-        agreement = self.validate_show_message(agreement, validate_func=validate_agreement, con=con)
-
+        login = self.validate_show_message(
+            login,
+            validate_func=validate_login,
+            con=con,
+        )
+        email = self.validate_show_message(
+            email,
+            validate_func=validate_email,
+            con=con,
+        )
+        password = self.validate_show_message(
+            password1,
+            password2,
+            validate_func=validate_password,
+        )
+        agreement = self.validate_show_message(
+            agreement,
+            validate_func=validate_agreement,
+        )
         if any(x is None for x in (login, email, password, agreement)):
             return
 
-        request = f'''INSERT INTO users ('login', 'password', 'email')
-                      VALUES ('{login}', '{password}', '{email}')
-                    '''
-        con.execute(request)
+        self.insert_new_user(login=login, password=password, email=email)
         con.commit()
 
         self.form = AccountWidget(login=login, email=email, image=None)
@@ -52,8 +74,3 @@ class SignUpWidget(QMainWindow, Ui_SigningUp):
             self.not_all_data_status_bar.showMessage(str(e))
             return
         return data
-
-
-
-
-

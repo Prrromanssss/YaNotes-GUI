@@ -1,9 +1,5 @@
 import re
-
-
-class ValidationError(Exception):
-    pass
-
+from ..core.exceptions import ValidationError
 
 keywords = ['qwertyuiop[]\\', 'asdfghjkklжэё;\'`\'', 'zxcvbnm,./',
             '`1234567890-=', 'йцукенгшщзхъ\\', 'фывапролджэ',
