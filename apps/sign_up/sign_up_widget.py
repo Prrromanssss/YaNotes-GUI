@@ -7,6 +7,7 @@ from ..core.exceptions import ValidationError
 from .templates.sign_up_template import Ui_SigningUp
 from .validators import (validate_agreement, validate_email, validate_login,
                          validate_password)
+from .models import users_model
 
 
 class SignUpWidget(QMainWindow, Ui_SigningUp):
@@ -20,14 +21,6 @@ class SignUpWidget(QMainWindow, Ui_SigningUp):
         self.password_sign_up_edit.setPlaceholderText('Enter the password')
         self.password2_sign_up_edit.setPlaceholderText('Repeat the password')
         self.form = None
-
-    @staticmethod
-    def insert_new_user(login, password, email):
-        con = sqlite3.connect('YaNotes.sqlite3')
-        request = f'''INSERT INTO users ('login', 'password', 'email')
-                      VALUES ('{login}', '{password}', '{email}')'''
-        con.execute(request)
-        con.commit()
 
     def registrate_user(self):
         con = sqlite3.connect('YaNotes.sqlite3')
@@ -60,7 +53,7 @@ class SignUpWidget(QMainWindow, Ui_SigningUp):
         if any(x is None for x in (login, email, password, agreement)):
             return
 
-        self.insert_new_user(login=login, password=password, email=email)
+        users_model.insert_new_user(login=login, password=password, email=email)
         con.commit()
 
         self.form = AccountWidget(login=login, email=email, image=None)

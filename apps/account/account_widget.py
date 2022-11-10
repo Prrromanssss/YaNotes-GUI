@@ -1,12 +1,12 @@
-import sqlite3
-
 from PIL import Image
 from PyQt5 import QtCore
 from PyQt5.QtGui import QFont, QPixmap
 from PyQt5.QtWidgets import QFileDialog, QMainWindow
 
+from ..text_notes.text_notes_widget import TextNotes
 from .delete_account_widget import DeleteAccount
 from .templates.account_template import Ui_Account
+from .models import users_model
 
 
 class AccountWidget(QMainWindow, Ui_Account):
@@ -28,15 +28,6 @@ class AccountWidget(QMainWindow, Ui_Account):
         self.load_picture_button.clicked.connect(self.load_picture)
         self.form = None
 
-    @staticmethod
-    def insert_image(file, login):
-        con = sqlite3.connect('YaNotes.sqlite3')
-        request = f'''UPDATE users
-                     SET image = '{file}'
-                     WHERE login = '{login}' '''
-        con.execute(request)
-        con.commit()
-
     def load_picture(self):
         file = QFileDialog.getOpenFileName(
             self,
@@ -51,7 +42,7 @@ class AccountWidget(QMainWindow, Ui_Account):
             image = f'media/{login}.png'
             im.save(image)
 
-            self.insert_image(image, login)
+            users_model.insert_image(image, login)
 
     def delete_account(self):
         login = self.login_label.text()
@@ -59,7 +50,10 @@ class AccountWidget(QMainWindow, Ui_Account):
         self.form.show()
 
     def text_notes(self):
-        ...
+        login = self.login_label.text()
+        self.form = TextNotes(login)
+        self.form.show()
+        self.hide()
 
     def calendar_notes(self):
         ...

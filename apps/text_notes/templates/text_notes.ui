@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TextNotes</class>
+ <widget class="QDialog" name="TextNotes">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>860</width>
+    <height>765</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QToolBox" name="all_pages_tool_box">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>841</width>
+     <height>711</height>
+    </rect>
+   </property>
+   <property name="whatsThis">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="currentIndex">
+    <number>9</number>
+   </property>
+   <widget class="QWidget" name="page_1_tool_box">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>98</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Page 1</string>
+    </attribute>
+    <widget class="QTextEdit" name="textEdit_page_1">
+     <property name="geometry">
+      <rect>
+       <x>3</x>
+       <y>0</y>
+       <width>831</width>
+       <height>331</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="save_button_page_1">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>330</y>
+       <width>113</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save page</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="change_title_button_page_1">
+     <property name="geometry">
+      <rect>
+       <x>492</x>
+       <y>330</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change title of the page</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_2_tool_box">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>98</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Page 2</string>
+    </attribute>
+    <widget class="QTextEdit" name="textEdit_page_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>831</width>
+       <height>331</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="save_button_page_2">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>330</y>
+       <width>113</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save page</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="change_title_button_page_2">
+     <property name="geometry">
+      <rect>
+       <x>492</x>
+       <y>330</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change title of the page</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_3_tool_box">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>98</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Page</string>
+    </attribute>
+    <widget class="QPushButton" name="save_button_page_3">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>330</y>
+       <width>113</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save page</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_page_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>831</width>
+       <height>331</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="change_title_button_page_3">
+     <property name="geometry">
+      <rect>
+       <x>492</x>
+       <y>330</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change title of the page</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_4_tool_box">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>98</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Page</string>
+    </attribute>
+    <widget class="QPushButton" name="save_button_page_4">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>330</y>
+       <width>113</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save page</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_page_4">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>831</width>
+       <height>331</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="change_title_button_page_4">
+     <property name="geometry">
+      <rect>
+       <x>492</x>
+       <y>330</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change title of the page</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_5_tool_box">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>98</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Page</string>
+    </attribute>
+    <widget class="QPushButton" name="save_button_page_5">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>330</y>
+       <width>113</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save page</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_page_5">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>831</width>
+       <height>331</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="change_title_button_page_5">
+     <property name="geometry">
+      <rect>
+       <x>492</x>
+       <y>330</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change title of the page</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_6_tool_box">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>98</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Page</string>
+    </attribute>
+    <widget class="QPushButton" name="save_button_page_6">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>330</y>
+       <width>113</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save page</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_page_6">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>831</width>
+       <height>331</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="change_title_button_page_6">
+     <property name="geometry">
+      <rect>
+       <x>492</x>
+       <y>330</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change title of the page</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_7_tool_box">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>98</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Page</string>
+    </attribute>
+    <widget class="QPushButton" name="save_button_page_7">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>330</y>
+       <width>113</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save page</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_page_7">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>831</width>
+       <height>331</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="change_title_button_page_7">
+     <property name="geometry">
+      <rect>
+       <x>492</x>
+       <y>330</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change title of the page</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_8_tool_box">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>98</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Page</string>
+    </attribute>
+    <widget class="QPushButton" name="save_button_page_8">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>330</y>
+       <width>113</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save page</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_page_8">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>831</width>
+       <height>331</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="change_title_button_page_8">
+     <property name="geometry">
+      <rect>
+       <x>492</x>
+       <y>330</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change title of the page</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_9_tool_box">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>841</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Page</string>
+    </attribute>
+    <widget class="QPushButton" name="save_button_page_9">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>330</y>
+       <width>113</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save page</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_page_9">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>831</width>
+       <height>331</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="change_title_button_page_9">
+     <property name="geometry">
+      <rect>
+       <x>492</x>
+       <y>330</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change title of the page</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_10_tool_box">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>841</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Page</string>
+    </attribute>
+    <widget class="QPushButton" name="save_button_page_10">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>330</y>
+       <width>113</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save page</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_page_10">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>831</width>
+       <height>331</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="change_title_button_page_10">
+     <property name="geometry">
+      <rect>
+       <x>492</x>
+       <y>330</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change title of the page</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

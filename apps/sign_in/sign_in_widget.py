@@ -1,11 +1,10 @@
-import sqlite3
-
 from PyQt5.QtWidgets import QLineEdit, QMainWindow
 
 from ..account.account_widget import AccountWidget
 from ..recovery.recovery_widget import RecoveryWidget
 from ..sign_up.sign_up_widget import SignUpWidget
 from .templates.sign_in_template import Ui_SigningIn
+from .models import users_model
 
 
 class SignInWidget(QMainWindow, Ui_SigningIn):
@@ -18,19 +17,10 @@ class SignInWidget(QMainWindow, Ui_SigningIn):
         self.password_sign_in_edit.setEchoMode(QLineEdit.Password)
         self.form = None
 
-    @staticmethod
-    def select_user(login):
-        con = sqlite3.connect('YaNotes.sqlite3')
-        request = f'''SELECT * FROM users 
-                                 WHERE login = '{login}' '''
-        data = con.execute(request).fetchall()
-        con.commit()
-        return data
-
     def sign_in(self):
         login = self.login_sign_in_edit.text()
         password = self.password_sign_in_edit.text()
-        data = self.select_user(login)
+        data = users_model.select_user(login)
 
         if not data:
             self.user_not_found_status_bar.showMessage('You are not registered')
