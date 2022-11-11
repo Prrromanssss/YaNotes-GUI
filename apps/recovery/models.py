@@ -3,7 +3,7 @@ import sqlite3
 
 class UsersModel:
     @staticmethod
-    def update_password_of_th_user(login, password):
+    def update_password_of_the_user(*, login, password):
         con = sqlite3.connect('YaNotes.sqlite3')
         request = f'''UPDATE users
                       SET password = '{password}'
@@ -12,7 +12,7 @@ class UsersModel:
         con.commit()
 
     @staticmethod
-    def select_all_user_data(login):
+    def select_all_user_data(*, login):
         con = sqlite3.connect('YaNotes.sqlite3')
         request = f'''SELECT * FROM users
                       WHERE login = '{login}' '''

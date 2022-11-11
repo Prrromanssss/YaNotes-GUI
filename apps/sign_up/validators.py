@@ -1,4 +1,5 @@
 import re
+
 from ..core.exceptions import ValidationError
 
 keywords = ['qwertyuiop[]\\', 'asdfghjkklжэё;\'`\'', 'zxcvbnm,./',
@@ -14,7 +15,8 @@ def validate_email(email, con):
         raise ValidationError('Such email already exists')
     email = email.strip()
     regex = re.compile(
-        r"([-!#-'*+/-9=?A-Z^-~]+(\.[-!#-'*+/-9=?A-Z^-~]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")"
+        r"([-!#-'*+/-9=?A-Z^-~]+(\.[-!#-'*+/-9=?A-Z^-~]+)*"
+        r"|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")"
         r"@([-!#-'*+/-9=?A-Z^-~]+(\.[-!#-'*+/-9=?A-Z^-~]+)*|\[[\t -Z^-~]*])")
     if re.fullmatch(regex, email):
         return email
@@ -29,12 +31,18 @@ def validate_password(password1, password2, con=None):
         raise ValidationError('The password is too short')
     elif not all([any([_.islower() for _ in password]),
                   any([_.isupper() for _ in password])]):
-        raise ValidationError('The password must contain characters of different case')
+        raise ValidationError(
+            'The password must contain characters of different case'
+            )
     elif not any([_.isnumeric() for _ in password]):
         raise ValidationError('The password must contain at least 1 digit')
-    elif not all([password[k:k + 3].lower() not in x for k in range(len(password) - 2)
-                  for x in keywords]):
-        raise ValidationError('Combination of 3 letters standing side by side in the keyboard line is not allowed')
+    elif not all([password[k:k + 3].lower() not in x
+                 for k in range(len(password) - 2)
+                 for x in keywords]):
+        raise ValidationError(
+            'Combination of 3 letters standing side by side'
+            'in the keyboard line is not allowed'
+        )
     else:
         return password
 

@@ -4,10 +4,10 @@ from PyQt5.QtWidgets import QLineEdit, QMainWindow
 
 from ..account.account_widget import AccountWidget
 from ..core.exceptions import ValidationError
+from .models import users_model
 from .templates.sign_up_template import Ui_SigningUp
 from .validators import (validate_agreement, validate_email, validate_login,
                          validate_password)
-from .models import users_model
 
 
 class SignUpWidget(QMainWindow, Ui_SigningUp):
@@ -53,7 +53,11 @@ class SignUpWidget(QMainWindow, Ui_SigningUp):
         if any(x is None for x in (login, email, password, agreement)):
             return
 
-        users_model.insert_new_user(login=login, password=password, email=email)
+        users_model.insert_new_user(
+            login=login,
+            password=password,
+            email=email
+        )
         con.commit()
 
         self.form = AccountWidget(login=login, email=email, image=None)

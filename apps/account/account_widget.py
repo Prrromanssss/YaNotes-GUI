@@ -3,10 +3,10 @@ from PyQt5 import QtCore
 from PyQt5.QtGui import QFont, QPixmap
 from PyQt5.QtWidgets import QFileDialog, QMainWindow
 
-from ..text_notes.text_notes_widget import TextNotes
+from ..text_notes.list_text_notes_widget import ListTextNotes
 from .delete_account_widget import DeleteAccount
-from .templates.account_template import Ui_Account
 from .models import users_model
+from .templates.account_template import Ui_Account
 
 
 class AccountWidget(QMainWindow, Ui_Account):
@@ -19,6 +19,7 @@ class AccountWidget(QMainWindow, Ui_Account):
         self.setFixedSize(self.width(), self.height())
         self.login_label.setFont(QFont('Arial', 24))
         self.login_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.image = image
         if image:
             self.picture_label.setPixmap(QPixmap(image))
         self.delete_acc_button.clicked.connect(self.delete_account)
@@ -40,9 +41,10 @@ class AccountWidget(QMainWindow, Ui_Account):
             login = self.login_label.text()
             im = Image.open(file)
             image = f'media/{login}.png'
+            self.image = image
             im.save(image)
 
-            users_model.insert_image(image, login)
+            users_model.insert_image(file=image, login=login)
 
     def delete_account(self):
         login = self.login_label.text()
@@ -51,7 +53,7 @@ class AccountWidget(QMainWindow, Ui_Account):
 
     def text_notes(self):
         login = self.login_label.text()
-        self.form = TextNotes(login)
+        self.form = ListTextNotes(login, self.email_edit.text(), self.image)
         self.form.show()
         self.hide()
 

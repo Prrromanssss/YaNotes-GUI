@@ -4,9 +4,9 @@ from PyQt5.QtWidgets import QLineEdit, QMainWindow
 
 from ..account.account_widget import AccountWidget
 from ..core.exceptions import ValidationError
+from .models import users_model
 from .templates.recovery_template import Ui_Recovery
 from .validators import validate_login, validate_password
-from .models import users_model
 
 
 class RecoveryWidget(QMainWindow, Ui_Recovery):
@@ -41,7 +41,7 @@ class RecoveryWidget(QMainWindow, Ui_Recovery):
 
         users_model(login=login, password=password)
 
-        data = users_model.select_all_user_data(login)
+        data = users_model.select_all_user_data(login=login)
 
         self.form = AccountWidget(
             login=data[0][1],

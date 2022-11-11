@@ -3,7 +3,7 @@ import sqlite3
 
 class UsersModel:
     @staticmethod
-    def insert_image(file, login):
+    def insert_image(*, file, login):
         con = sqlite3.connect('YaNotes.sqlite3')
         request = f'''UPDATE users
                       SET image = '{file}'
@@ -12,7 +12,7 @@ class UsersModel:
         con.commit()
 
     @staticmethod
-    def delete_user(login):
+    def delete_user(*, login):
         con = sqlite3.connect('YaNotes.sqlite3')
         request = f'''DELETE FROM users
                       WHERE login = '{login}' '''

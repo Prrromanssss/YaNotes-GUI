@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow
 
-from .templates.delete_account_template import Ui_DeleteAccount
 from .models import users_model
+from .templates.delete_account_template import Ui_DeleteAccount
 
 
 class DeleteAccount(QMainWindow, Ui_DeleteAccount):
@@ -18,7 +18,7 @@ class DeleteAccount(QMainWindow, Ui_DeleteAccount):
         if yes:
             from ..sign_in.sign_in_widget import SignInWidget
 
-            users_model.delete_user(self.login)
+            users_model.delete_user(login=self.login)
             self.ex.hide()
             self.form = SignInWidget()
             self.form.show()
