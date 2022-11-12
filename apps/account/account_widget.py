@@ -66,3 +66,5 @@ class AccountWidget(QMainWindow, Ui_Account):
 
     def calendar_notes(self):
         ...
+
+    # ToDo:  button to sign up
