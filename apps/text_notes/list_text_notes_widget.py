@@ -10,17 +10,21 @@ from .text_notes_widget import TextNotes
 class ListTextNotes(QMainWindow, Ui_ListTextNotes):
     def __init__(self, user_login, user_email, user_image):
         super().__init__()
+        self.setupUi(self)
         self.user_login = user_login
         self.user_email = user_email
         self.user_image = user_image
         self.form = None
-        self.setupUi(self)
-        self.layout = QVBoxLayout()
-        self.widget = QWidget()
         self.add_folder_button.clicked.connect(self.add_folder)
         self.to_main_menu_button.clicked.connect(self.main_menu)
         self.change_title_button.clicked.connect(self.change_title_of_the_folder)
         self.delete_folder_button.clicked.connect(self.delete_folder)
+
+        self.load_data()
+
+    def load_data(self):
+        self.layout = QVBoxLayout()
+        self.widget = QWidget()
         data = list_text_notes_model.select(login=self.user_login)
         for i in range(len(data)):
             title = data[i][-1]
@@ -80,11 +84,11 @@ class ListTextNotes(QMainWindow, Ui_ListTextNotes):
             new_title=new_title,
         )
 
-        self.not_unique_title_status_bar.showMessage('To update the name, go back to the notes')
+        self.load_data()
 
     def delete_folder(self):
         title, ok_pressed = QInputDialog.getText(self, 'Delete the folder',
-                                                 'Enter the title')
+                                                       'Enter the title')
         if not ok_pressed and not title.strip():
             return
 
@@ -94,7 +98,9 @@ class ListTextNotes(QMainWindow, Ui_ListTextNotes):
             return
 
         entry_id = data[0][0]
+        list_text_notes_model.cascade_delete_folder(entry_id=entry_id)
 
+        self.load_data()
 
     def create_button(self, title):
         obj = QPushButton(title)

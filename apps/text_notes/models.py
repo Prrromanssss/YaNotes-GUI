@@ -35,14 +35,14 @@ class TextNotesModel:
         if data:
             request = f'''UPDATE text_notes
                           SET text = '{text}',
-                          title_of_the_page = '{title_of_the_page}'
+                              title_of_the_page = '{title_of_the_page}'
                           WHERE id = {data[0][0]}
                        '''
         else:
             request = f'''INSERT INTO text_notes
-                          (text, folder_id, page, title_of_the_page)
+                              (text, folder_id, page, title_of_the_page)
                           VALUES ('{text}', {folder_id}, {page},
-                          '{title_of_the_page}')
+                              '{title_of_the_page}')
                        '''
         con.execute(request)
         con.commit()
@@ -74,7 +74,7 @@ class ListTextNotesModel:
         con = sqlite3.connect('YaNotes.sqlite3')
         user_id = users_model.select_user_id(login=login)
         request = f'''INSERT INTO list_text_notes
-                      (user_id, folder, title_of_the_folder)
+                          (user_id, folder, title_of_the_folder)
                       VALUES ({user_id}, {folder}, '{title_of_the_folder}')
                            '''
         con.execute(request)
@@ -97,14 +97,14 @@ class ListTextNotesModel:
         con = sqlite3.connect('YaNotes.sqlite3')
         user_id = users_model.select_user_id(login=login)
         request = f'''SELECT text_notes.id, text_notes.text,
-                      text_notes.folder_id,
-                      text_notes.page, text_notes.title_of_the_page
+                          text_notes.folder_id,
+                          text_notes.page, text_notes.title_of_the_page
                       FROM text_notes
                       INNER JOIN list_text_notes
                       ON text_notes.folder_id = list_text_notes.id
                       WHERE list_text_notes.user_id = {user_id}
                       AND list_text_notes.title_of_the_folder =
-                      '{title_of_the_folder}'
+                          '{title_of_the_folder}'
                       ORDER BY text_notes.page
                    '''
         data = con.execute(request).fetchall()
@@ -132,6 +132,22 @@ class ListTextNotesModel:
                       WHERE id = {entry_id}
                   '''
         con.execute(request).fetchall()
+        con.commit()
+
+    @staticmethod
+    def cascade_delete_folder(*, entry_id):
+        con = sqlite3.connect('YaNotes.sqlite3')
+        request = f'''DELETE FROM
+                          list_text_notes
+                      WHERE id = {entry_id}
+                   '''
+        con.execute(request)
+
+        request = f'''DELETE FROM
+                          text_notes
+                      WHERE folder_id = {entry_id}
+                   '''
+        con.execute(request)
         con.commit()
 
 
