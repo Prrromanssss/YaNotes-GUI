@@ -8,6 +8,7 @@ class TextNotes(QMainWindow, Ui_TextNotes):
     def __init__(self, ex, data, folder_id):
         super().__init__()
         self.setupUi(self)
+        self.setFixedSize(self.width(), self.height())
         self.form = ex
         self.folder_id = folder_id
         for i in range(1, 11):

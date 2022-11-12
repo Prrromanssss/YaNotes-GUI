@@ -11,6 +11,7 @@ class ListTextNotes(QMainWindow, Ui_ListTextNotes):
     def __init__(self, user_login, user_email, user_image):
         super().__init__()
         self.setupUi(self)
+        self.setFixedSize(self.width(), self.height())
         self.user_login = user_login
         self.user_email = user_email
         self.user_image = user_image
@@ -38,7 +39,7 @@ class ListTextNotes(QMainWindow, Ui_ListTextNotes):
         self.scrollArea.setWidget(self.widget)
 
     def add_folder(self):
-        title, ok_pressed = QInputDialog.getText(self, 'Create new folder',
+        title, ok_pressed = QInputDialog.getText(self, 'Creation new folder',
                                                        'Enter the title')
         if not ok_pressed and not title.strip():
             return
@@ -62,7 +63,7 @@ class ListTextNotes(QMainWindow, Ui_ListTextNotes):
             )
 
     def change_title_of_the_folder(self):
-        title, ok_pressed = QInputDialog.getText(self, 'Change the title of the folder',
+        title, ok_pressed = QInputDialog.getText(self, 'Changing the title of the folder',
                                                        'Enter the title of the existing folder you want to change')
         if not ok_pressed and not title.strip():
             return
@@ -72,7 +73,7 @@ class ListTextNotes(QMainWindow, Ui_ListTextNotes):
             self.not_unique_title_status_bar.showMessage('Such folder doesn\'t exist ')
             return
 
-        new_title, ok_pressed = QInputDialog.getText(self, 'Change the title of the folder',
+        new_title, ok_pressed = QInputDialog.getText(self, 'Changing the title of the folder',
                                                            'Enter new title')
 
         if not ok_pressed and not title.strip():
@@ -87,7 +88,7 @@ class ListTextNotes(QMainWindow, Ui_ListTextNotes):
         self.load_data()
 
     def delete_folder(self):
-        title, ok_pressed = QInputDialog.getText(self, 'Delete the folder',
+        title, ok_pressed = QInputDialog.getText(self, 'Deleting the folder',
                                                        'Enter the title')
         if not ok_pressed and not title.strip():
             return

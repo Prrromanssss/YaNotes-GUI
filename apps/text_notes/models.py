@@ -131,7 +131,7 @@ class ListTextNotesModel:
                       SET title_of_the_folder = '{new_title}'
                       WHERE id = {entry_id}
                   '''
-        con.execute(request).fetchall()
+        con.execute(request)
         con.commit()
 
     @staticmethod

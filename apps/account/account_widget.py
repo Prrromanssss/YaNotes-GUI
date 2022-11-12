@@ -3,6 +3,7 @@ from PyQt5 import QtCore
 from PyQt5.QtGui import QFont, QPixmap
 from PyQt5.QtWidgets import QFileDialog, QMainWindow
 
+from ..table_notes.list_table_notes_widget import ListTableNotes
 from ..text_notes.list_text_notes_widget import ListTextNotes
 from .delete_account_widget import DeleteAccount
 from .models import users_model
@@ -13,10 +14,10 @@ class AccountWidget(QMainWindow, Ui_Account):
     def __init__(self, login, email, image):
         super().__init__()
         self.setupUi(self)
+        self.setFixedSize(self.width(), self.height())
         self.email_edit.setText(email)
         self.email_edit.setReadOnly(True)
         self.login_label.setText(login)
-        self.setFixedSize(self.width(), self.height())
         self.login_label.setFont(QFont('Arial', 24))
         self.login_label.setAlignment(QtCore.Qt.AlignCenter)
         self.image = image
@@ -57,8 +58,11 @@ class AccountWidget(QMainWindow, Ui_Account):
         self.form.show()
         self.hide()
 
-    def calendar_notes(self):
-        ...
-
     def table_notes(self):
+        login = self.login_label.text()
+        self.form = ListTableNotes(login, self.email_edit.text(), self.image)
+        self.form.show()
+        self.hide()
+
+    def calendar_notes(self):
         ...

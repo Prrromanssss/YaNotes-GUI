@@ -11,6 +11,7 @@ class SignInWidget(QMainWindow, Ui_SigningIn):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.setFixedSize(self.width(), self.height())
         self.sign_in_button.clicked.connect(self.sign_in)
         self.sign_up_button.clicked.connect(self.sign_up)
         self.forgot_password_button.clicked.connect(self.recovery)

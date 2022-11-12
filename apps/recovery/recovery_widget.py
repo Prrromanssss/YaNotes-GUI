@@ -13,6 +13,7 @@ class RecoveryWidget(QMainWindow, Ui_Recovery):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.setFixedSize(self.width(), self.height())
         self.password_recovery_edit.setPlaceholderText('Enter new password')
         self.password2_recovery_edit.setPlaceholderText('Repeat the password')
         self.password_recovery_edit.setEchoMode(QLineEdit.Password)
