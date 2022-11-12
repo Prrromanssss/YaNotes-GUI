@@ -33,8 +33,8 @@ class AccountWidget(QMainWindow, Ui_Account):
     def load_picture(self):
         file = QFileDialog.getOpenFileName(
             self,
-            'Выбрать картинку', '',
-            'Картинка (*.png)'
+            'Choose the image', '',
+            'Image (*.png)'
         )[0]
 
         if file:

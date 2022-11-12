@@ -11,6 +11,7 @@ class TextNotes(QMainWindow, Ui_TextNotes):
         self.setFixedSize(self.width(), self.height())
         self.form = ex
         self.folder_id = folder_id
+        self.move(250, 20)
         for i in range(1, 11):
             self.__getattribute__(f'save_button_page_{i}').clicked.connect(
                 self.insert_text
@@ -21,9 +22,10 @@ class TextNotes(QMainWindow, Ui_TextNotes):
                 f'change_title_button_page_{i}').clicked.connect(
                     self.change_title
             )
-        self.to_main_menu_button.clicked.connect(self.main_menu)
+        self.to_main_menu_button.clicked.connect(self.to_list_text_notes)
 
         indexes_of_all_pages = {i for i in range(1, 11)}
+
         for i in range(len(data)):
             title_of_the_page = data[i][-1]
             text = data[i][1]
@@ -64,6 +66,6 @@ class TextNotes(QMainWindow, Ui_TextNotes):
             title_of_the_page=text
         )
 
-    def main_menu(self):
+    def to_list_text_notes(self):
         self.form.show()
         self.hide()
