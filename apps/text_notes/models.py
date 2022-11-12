@@ -115,17 +115,24 @@ class ListTextNotesModel:
     def check_unique_title(*, login, title_of_the_folder):
         con = sqlite3.connect('YaNotes.sqlite3')
         user_id = users_model.select_user_id(login=login)
-        request = f'''SELECT title_of_the_folder
+        request = f'''SELECT id
                      FROM list_text_notes
                      WHERE user_id = {user_id}
                      AND title_of_the_folder = '{title_of_the_folder}'
                     '''
         data = con.execute(request).fetchall()
         con.commit()
-        print(data)
-        if data:
-            return False
-        return True
+        return data
+
+    @staticmethod
+    def update_title_of_the_folder(*, entry_id, new_title):
+        con = sqlite3.connect('YaNotes.sqlite3')
+        request = f'''UPDATE list_text_notes
+                      SET title_of_the_folder = '{new_title}'
+                      WHERE id = {entry_id}
+                  '''
+        con.execute(request).fetchall()
+        con.commit()
 
 
 text_notes_model = TextNotesModel()

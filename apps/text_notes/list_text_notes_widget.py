@@ -19,6 +19,8 @@ class ListTextNotes(QMainWindow, Ui_ListTextNotes):
         self.widget = QWidget()
         self.add_folder_button.clicked.connect(self.add_folder)
         self.to_main_menu_button.clicked.connect(self.main_menu)
+        self.change_title_button.clicked.connect(self.change_title_of_the_folder)
+        self.delete_folder_button.clicked.connect(self.delete_folder)
         data = list_text_notes_model.select(login=self.user_login)
         for i in range(len(data)):
             title = data[i][-1]
@@ -32,12 +34,12 @@ class ListTextNotes(QMainWindow, Ui_ListTextNotes):
         self.scrollArea.setWidget(self.widget)
 
     def add_folder(self):
-        title, ok_pressed = QInputDialog.getText(self, "Create new folder",
-                                                       "Enter  title")
+        title, ok_pressed = QInputDialog.getText(self, 'Create new folder',
+                                                       'Enter the title')
         if not ok_pressed and not title.strip():
             return
 
-        if list_text_notes_model.check_unique_title(
+        if not list_text_notes_model.check_unique_title(
             login=self.user_login,
             title_of_the_folder=title
         ):
@@ -54,6 +56,45 @@ class ListTextNotes(QMainWindow, Ui_ListTextNotes):
             self.not_unique_title_status_bar.showMessage(
                 'Title of the folder must be unique'
             )
+
+    def change_title_of_the_folder(self):
+        title, ok_pressed = QInputDialog.getText(self, 'Change the title of the folder',
+                                                       'Enter the title of the existing folder you want to change')
+        if not ok_pressed and not title.strip():
+            return
+
+        data = list_text_notes_model.check_unique_title(login=self.user_login, title_of_the_folder=title)
+        if not data:
+            self.not_unique_title_status_bar.showMessage('Such folder doesn\'t exist ')
+            return
+
+        new_title, ok_pressed = QInputDialog.getText(self, 'Change the title of the folder',
+                                                           'Enter new title')
+
+        if not ok_pressed and not title.strip():
+            return
+
+        entry_id = data[0][0]
+        list_text_notes_model.update_title_of_the_folder(
+            entry_id=entry_id,
+            new_title=new_title,
+        )
+
+        self.not_unique_title_status_bar.showMessage('To update the name, go back to the notes')
+
+    def delete_folder(self):
+        title, ok_pressed = QInputDialog.getText(self, 'Delete the folder',
+                                                 'Enter the title')
+        if not ok_pressed and not title.strip():
+            return
+
+        data = list_text_notes_model.check_unique_title(login=self.user_login, title_of_the_folder=title)
+        if not data:
+            self.not_unique_title_status_bar.showMessage('Such folder doesn\'t exist ')
+            return
+
+        entry_id = data[0][0]
+
 
     def create_button(self, title):
         obj = QPushButton(title)
