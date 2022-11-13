@@ -1,6 +1,6 @@
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import (QInputDialog, QMainWindow, QPushButton,
-                             QVBoxLayout, QWidget, QMessageBox)
+from PyQt5.QtWidgets import (QInputDialog, QMainWindow, QMessageBox,
+                             QPushButton, QVBoxLayout, QWidget)
 
 from .models import list_table_notes_model
 from .table_notes_widget import TableNotes

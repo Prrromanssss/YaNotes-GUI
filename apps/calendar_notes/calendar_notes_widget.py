@@ -1,9 +1,9 @@
 import datetime
 
-from PyQt5.QtWidgets import QMainWindow, QMessageBox, QInputDialog
+from PyQt5.QtWidgets import QInputDialog, QMainWindow, QMessageBox
 
-from .templates.calendar_notes_template import Ui_CalendarNotes
 from .models import calendar_notes_model
+from .templates.calendar_notes_template import Ui_CalendarNotes
 
 
 class CalendarNotes(QMainWindow, Ui_CalendarNotes):
@@ -68,8 +68,12 @@ class CalendarNotes(QMainWindow, Ui_CalendarNotes):
             return
 
         calendar = self.calendarWidget.selectedDate()
-        date_user = datetime.datetime(int(calendar.year()), int(calendar.month()), int(calendar.day()),
-                                      int(self.timeEdit.text().split(':')[0]), int(self.timeEdit.text().split(':')[-1]))
+        date_user = datetime.datetime(
+            int(calendar.year()),
+            int(calendar.month()),
+            int(calendar.day()),
+            int(self.timeEdit.text().split(':')[0]),
+            int(self.timeEdit.text().split(':')[-1]))
         date_now = datetime.datetime.now()
         print(date_now, date_user)
         if date_user < datetime.datetime.now():
@@ -81,8 +85,10 @@ class CalendarNotes(QMainWindow, Ui_CalendarNotes):
             )
             return
         gmt = int(self.comboBox.currentText().split('GMT')[-1])
-        self.listWidget.addItem(f'{calendar.year()}-{calendar.month()}-{calendar.day()}'
-                                f' {self.timeEdit.text()} - {self.event_lineEdit.text()}')
+        self.listWidget.addItem(
+            f'{calendar.year()}-{calendar.month()}-{calendar.day()}'
+            f' {self.timeEdit.text()} - {self.event_lineEdit.text()}'
+        )
         self.listWidget.sortItems()
         flag_to_send = self.turn_on_radioButton.isChecked()
         calendar_notes_model.insert(
@@ -102,7 +108,10 @@ class CalendarNotes(QMainWindow, Ui_CalendarNotes):
         if not ok_pressed:
             return
 
-        calendar_notes_model.update_chat_id(chat_id=chat_id, login=self.user_login)
+        calendar_notes_model.update_chat_id(
+            chat_id=chat_id,
+            login=self.user_login,
+            )
 
     def main_menu(self):
         from ..account.account_widget import AccountWidget
@@ -114,8 +123,3 @@ class CalendarNotes(QMainWindow, Ui_CalendarNotes):
         )
         self.form.show()
         self.hide()
-
-
-
-
-

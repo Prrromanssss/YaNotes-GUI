@@ -1,15 +1,21 @@
 import asyncio
-import sys
 import os
-import aiohttp
-import telebot.async_telebot
+import sys
+
+# import aiohttp
+# import telebot.async_telebot
+from aiogram import Bot, Dispatcher, executor, types
+from asyncqt import QEventLoop
 from dotenv import load_dotenv
 from PyQt5.QtWidgets import QApplication
-from asyncqt import QEventLoop
+
 from apps.sign_in.sign_in_widget import SignInWidget
-from telegram.ext import Updater, CommandHandler
-from telegram.ext.dispatcher import run_async
-from aiogram import Bot, Dispatcher, executor, types
+
+# from telegram.ext import CommandHandler, Updater
+
+
+# from telegram.ext.dispatcher import run_async
+
 
 load_dotenv()
 
@@ -76,16 +82,17 @@ async def main():
     await executor.start_polling(dp, skip_updates=True)
 
 
-def _main():
-    updater = Updater(API_TOKEN, use_context=True)
+def __main():
+    # updater = Updater(API_TOKEN, use_context=True)
 
-    dp = updater.dispatcher
+    # dp = updater.dispatcher
 
-    dp.add_handler(CommandHandler("start", start, run_async=True))
+    # dp.add_handler(CommandHandler("start", start, run_async=True))
 
-    updater.start_polling()
+    # updater.start_polling()
 
-    updater.idle()
+    # updater.idle()
+
 
 
 if __name__ == '__main__':

@@ -2,7 +2,7 @@ import csv
 import os
 
 from PyQt5.QtWidgets import (QFileDialog, QInputDialog, QMainWindow,
-                             QTableWidget, QTableWidgetItem, QMessageBox)
+                             QMessageBox, QTableWidget, QTableWidgetItem)
 
 from .models import table_notes_model
 from .templates.table_notes_template import Ui_TableNotes

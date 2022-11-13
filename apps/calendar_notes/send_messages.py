@@ -1,10 +1,11 @@
 import asyncio
 import datetime
 import os
-from .models import calendar_notes_model
+
 import telebot.async_telebot
 from dotenv import load_dotenv
 
+from .models import calendar_notes_model
 
 load_dotenv()
 
@@ -37,13 +38,14 @@ async def send_messages():
                 continue
             event = entry[1]
             chat_id = entry[-3]
-            if (date_now.year == date_user.year and date_now.month == date_user.month and
-                date_now.day == date_user.day and date_now.hour == date_user.hour and
-                date_now.minute == date_user.minute):
+            if (date_now.year == date_user.year and
+                date_now.month == date_user.month and
+                date_now.day == date_user.day and
+                date_now.hour == date_user.hour and
+                    date_now.minute == date_user.minute):
                 try:
                     bot.send_message(chat_id=chat_id, text=event)
                 except Exception as e:
                     print(e)
                 calendar_notes_model.delete_entry(entry_id=entry[0])
         await asyncio.sleep(1)
-

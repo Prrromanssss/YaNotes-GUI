@@ -1,9 +1,10 @@
 import asyncio
 import sys
 
-from apps.calendar_notes.send_messages import send_messages
-from PyQt5.QtWidgets import QApplication
 from asyncqt import QEventLoop
+from PyQt5.QtWidgets import QApplication
+
+from apps.calendar_notes.send_messages import send_messages
 from apps.sign_in.sign_in_widget import SignInWidget
 
 

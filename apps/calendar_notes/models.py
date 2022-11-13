@@ -16,8 +16,8 @@ class CalendarNotesModel:
     @staticmethod
     def select_all():
         con = sqlite3.connect('YaNotes.sqlite3')
-        request = f'''SELECT * FROM calendar_notes
-                   '''
+        request = '''SELECT * FROM calendar_notes
+                  '''
         data = con.execute(request).fetchall()
         con.commit()
         return data
@@ -39,7 +39,8 @@ class CalendarNotesModel:
         request = f'''INSERT INTO calendar_notes
                          (user_id, event, gmt, datetime, flag_to_send)
                      VALUES
-                         ({user_id}, '{event}', {gmt}, '{datetime}', {flag_to_send})
+                         ({user_id}, '{event}', {gmt},
+                         '{datetime}', {flag_to_send})
                   '''
         con.execute(request)
         con.commit()
