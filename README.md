@@ -52,6 +52,6 @@ python main.py
 ***
 
 ## ER-diagram
-![Image of the ER-diagram](https://github.com/Prrromanssss/LyceumYandex_django/raw/main/media_for_README/ER-diagram.png)
+![Image of the ER-diagram](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/ER-diagram.png)
 
 ***
