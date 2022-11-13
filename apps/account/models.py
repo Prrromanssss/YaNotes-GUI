@@ -41,6 +41,11 @@ class UsersModel:
                    '''
         con.execute(request)
 
+        request = f'''DELETE FROM calendar_notes
+                      WHERE user_id = {user_id}
+                   '''
+        con.execute(request)
+
         con.commit()
 
 

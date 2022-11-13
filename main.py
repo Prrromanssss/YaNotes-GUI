@@ -1,6 +1,9 @@
+import asyncio
 import sys
-from PyQt5.QtWidgets import QApplication
 
+from apps.calendar_notes.send_messages import send_messages
+from PyQt5.QtWidgets import QApplication
+from asyncqt import QEventLoop
 from apps.sign_in.sign_in_widget import SignInWidget
 
 
@@ -8,9 +11,20 @@ def except_hook(cls, exception, traceback):
     sys.__excepthook__(cls, exception, traceback)
 
 
-if __name__ == '__main__':
+async def main():
     app = QApplication(sys.argv)
+    loop = QEventLoop(app)
+    asyncio.set_event_loop(loop)
     ex = SignInWidget()
     ex.show()
     sys.excepthook = except_hook
-    sys.exit(app.exec())
+
+    with loop:
+
+        loop.run_until_complete(send_messages())
+        loop.run_forever()
+
+
+if __name__ == '__main__':
+
+    asyncio.run(main())

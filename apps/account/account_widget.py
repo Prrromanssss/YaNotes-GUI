@@ -3,6 +3,7 @@ from PyQt5 import QtCore
 from PyQt5.QtGui import QFont, QPixmap
 from PyQt5.QtWidgets import QFileDialog, QMainWindow
 
+from ..calendar_notes.calendar_notes_widget import CalendarNotes
 from ..table_notes.list_table_notes_widget import ListTableNotes
 from ..text_notes.list_text_notes_widget import ListTextNotes
 from .delete_account_widget import DeleteAccount
@@ -65,7 +66,10 @@ class AccountWidget(QMainWindow, Ui_Account):
         self.hide()
 
     def calendar_notes(self):
-        ...
+        login = self.login_label.text()
+        self.form = CalendarNotes(login, self.email_edit.text(), self.image)
+        self.form.show()
+        self.hide()
 
     def back_to_sign_in(self):
         ...

@@ -1,0 +1,6 @@
+1) Telegram
+make bot async to poll it, make new table for chat_id and all tg data,
+keep chat_id for the chat even if all entries were deleted
+
+2)List widget
+make sort entry for datetime
