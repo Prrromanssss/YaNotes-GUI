@@ -36,10 +36,6 @@ class Ui_ListTextNotes(object):
         self.delete_folder_button.setGeometry(QtCore.QRect(0, 210, 111, 41))
         self.delete_folder_button.setObjectName("delete_folder_button")
 
-        self.not_unique_title_status_bar = QtWidgets.QStatusBar(ListTextNotes)
-        self.not_unique_title_status_bar.setObjectName("statusbar")
-        ListTextNotes.setStatusBar(self.not_unique_title_status_bar)
-
         self.retranslateUi(ListTextNotes)
         QtCore.QMetaObject.connectSlotsByName(ListTextNotes)
 

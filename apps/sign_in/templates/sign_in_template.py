@@ -32,10 +32,6 @@ class Ui_SigningIn(object):
         self.forgot_password_button.setGeometry(QtCore.QRect(230, 310, 141, 41))
         self.forgot_password_button.setObjectName("forgot_password_button")
 
-        self.user_not_found_status_bar = QtWidgets.QStatusBar(SigningIn)
-        self.user_not_found_status_bar.setObjectName("statusbar")
-        SigningIn.setStatusBar(self.user_not_found_status_bar)
-
         self.retranslateUi(SigningIn)
         QtCore.QMetaObject.connectSlotsByName(SigningIn)
 

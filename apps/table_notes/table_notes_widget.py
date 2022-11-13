@@ -2,7 +2,7 @@ import csv
 import os
 
 from PyQt5.QtWidgets import (QFileDialog, QInputDialog, QMainWindow,
-                             QTableWidget, QTableWidgetItem)
+                             QTableWidget, QTableWidgetItem, QMessageBox)
 
 from .models import table_notes_model
 from .templates.table_notes_template import Ui_TableNotes
@@ -76,12 +76,22 @@ class TableNotes(QMainWindow, Ui_TableNotes):
                             i, j, QTableWidgetItem(elem))
             new_table_widget.resizeColumnsToContents()
         except Exception:
-            self.status_bar.showMessage('Incorrect data')
+            QMessageBox.warning(
+                self,
+                'Error',
+                'Incorrect data',
+                QMessageBox.Ok,
+            )
             return
 
     def load_file(self):
         if self.tabWidget.count() == 14:
-            self.status_bar.showMessage('The maximum number of tabs')
+            QMessageBox.warning(
+                self,
+                'Error',
+                'The maximum number of tabs',
+                QMessageBox.Ok,
+            )
             return
 
         title_of_the_page, ok_pressed = QInputDialog.getText(
@@ -89,6 +99,19 @@ class TableNotes(QMainWindow, Ui_TableNotes):
             'Enter the title'
         )
         if not ok_pressed and not title_of_the_page.strip():
+            return
+
+        data = table_notes_model.check_unique_title(
+            table_id=self.table_id,
+            title_of_the_page=title_of_the_page
+        )
+        if data:
+            QMessageBox.warning(
+                self,
+                'Error',
+                'Page with such name already exists. Try new name of the page',
+                QMessageBox.Ok,
+            )
             return
 
         delimiter, ok_pressed = QInputDialog.getText(
@@ -140,7 +163,7 @@ class TableNotes(QMainWindow, Ui_TableNotes):
         )
 
         new_file = file.split('/')[-1]
-        new_file = f'tables/{self.table_id}{new_file}'
+        new_file = f'tables/{self.table_id}{title_of_the_page}{new_file}'
 
         with open(new_file, newline=newline, mode='w') as new_csv_file,\
                 open(file, newline=newline) as csv_file:
@@ -167,7 +190,7 @@ class TableNotes(QMainWindow, Ui_TableNotes):
     def change_title(self):
         title, ok_pressed = QInputDialog.getText(
             self, 'Changing the title of the page',
-            'Enter the title of the existing file you want to change'
+                  'Enter the title of the existing page you want to change'
         )
         if not ok_pressed and not title.strip():
             return
@@ -177,7 +200,12 @@ class TableNotes(QMainWindow, Ui_TableNotes):
             title_of_the_page=title
         )
         if not data:
-            self.status_bar.showMessage('Such file doesn\'t exist ')
+            QMessageBox.warning(
+                self,
+                'Error',
+                'Such page doesn\'t exist',
+                QMessageBox.Ok,
+            )
             return
 
         new_title, ok_pressed = QInputDialog.getText(
@@ -206,7 +234,12 @@ class TableNotes(QMainWindow, Ui_TableNotes):
             title_of_the_page=title
         )
         if not data:
-            self.status_bar.showMessage('Such page doesn\'t exist ')
+            QMessageBox.warning(
+                self,
+                'Error',
+                'Such page doesn\'t exist',
+                QMessageBox.Ok,
+            )
             return
 
         entry_id = data[0][0]

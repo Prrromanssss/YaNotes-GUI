@@ -1,6 +1,6 @@
 import sqlite3
 
-from PyQt5.QtWidgets import QLineEdit, QMainWindow
+from PyQt5.QtWidgets import QLineEdit, QMainWindow, QMessageBox
 
 from ..account.account_widget import AccountWidget
 from ..core.exceptions import ValidationError
@@ -68,6 +68,11 @@ class SignUpWidget(QMainWindow, Ui_SigningUp):
         try:
             data = validate_func(*data, con)
         except ValidationError as e:
-            self.not_all_data_status_bar.showMessage(str(e))
+            QMessageBox.warning(
+                self,
+                'Error',
+                str(e),
+                QMessageBox.Ok,
+            )
             return
         return data

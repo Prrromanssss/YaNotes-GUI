@@ -1,6 +1,6 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QInputDialog, QMainWindow, QPushButton,
-                             QVBoxLayout, QWidget)
+                             QVBoxLayout, QWidget, QMessageBox)
 
 from .models import list_text_notes_model
 from .templates.list_text_notes_template import Ui_ListTextNotes
@@ -60,9 +60,13 @@ class ListTextNotes(QMainWindow, Ui_ListTextNotes):
                 folder=self.layout.count(),
             )
         else:
-            self.not_unique_title_status_bar.showMessage(
-                'Title of the folder must be unique'
+            QMessageBox.warning(
+                self,
+                'Error',
+                'Title of the folder must be unique',
+                QMessageBox.Ok,
             )
+            return
 
     def change_title_of_the_folder(self):
         title, ok_pressed = QInputDialog.getText(
@@ -77,8 +81,11 @@ class ListTextNotes(QMainWindow, Ui_ListTextNotes):
             title_of_the_folder=title
             )
         if not data:
-            self.not_unique_title_status_bar.showMessage(
-                'Such folder doesn\'t exist'
+            QMessageBox.warning(
+                self,
+                'Error',
+                'Such folder doesn\'t exist',
+                QMessageBox.Ok,
             )
             return
 
@@ -111,8 +118,11 @@ class ListTextNotes(QMainWindow, Ui_ListTextNotes):
             title_of_the_folder=title,
             )
         if not data:
-            self.not_unique_title_status_bar.showMessage(
-                'Such folder doesn\'t exist'
+            QMessageBox.warning(
+                self,
+                'Error',
+                'Such folder doesn\'t exist',
+                QMessageBox.Ok,
             )
             return
 

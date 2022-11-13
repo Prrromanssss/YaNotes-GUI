@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QLineEdit, QMainWindow
+from PyQt5.QtWidgets import QLineEdit, QMainWindow, QMessageBox
 
 from ..account.account_widget import AccountWidget
 from ..recovery.recovery_widget import RecoveryWidget
@@ -24,13 +24,21 @@ class SignInWidget(QMainWindow, Ui_SigningIn):
         data = users_model.select_user(login=login)
 
         if not data:
-            self.user_not_found_status_bar.showMessage(
-                'You aren\'t registered'
+            QMessageBox.warning(
+                self,
+                'Error',
+                'You aren\'t registered',
+                QMessageBox.Ok,
             )
             return
 
         if data[0][2] != password:
-            self.user_not_found_status_bar.showMessage('Wrong password')
+            QMessageBox.warning(
+                self,
+                'Error',
+                'Wrong password',
+                QMessageBox.Ok,
+            )
             return
 
         assert len(data) <= 1, 'Some users have the same login'

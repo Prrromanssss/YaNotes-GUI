@@ -45,10 +45,6 @@ class Ui_ListTableNotes(object):
         self.delete_table_button.setObjectName("delete_table_button")
         self.horizontalLayout.addWidget(self.delete_table_button)
 
-        self.not_unique_title_status_bar = QtWidgets.QStatusBar(ListTableNotes)
-        self.not_unique_title_status_bar.setObjectName("statusbar")
-        ListTableNotes.setStatusBar(self.not_unique_title_status_bar)
-
         self.retranslateUi(ListTableNotes)
         QtCore.QMetaObject.connectSlotsByName(ListTableNotes)
 

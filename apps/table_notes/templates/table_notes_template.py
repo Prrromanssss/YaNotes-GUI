@@ -41,10 +41,6 @@ class Ui_TableNotes(object):
         self.delete_file_button.setObjectName("delete_file_button")
         self.horizontalLayout.addWidget(self.delete_file_button)
 
-        self.status_bar = QtWidgets.QStatusBar(TableNotes)
-        self.status_bar.setObjectName("statusbar")
-        TableNotes.setStatusBar(self.status_bar)
-
         self.retranslateUi(TableNotes)
         self.tabWidget.setCurrentIndex(-1)
         QtCore.QMetaObject.connectSlotsByName(TableNotes)

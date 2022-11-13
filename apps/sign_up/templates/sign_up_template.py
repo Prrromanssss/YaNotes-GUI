@@ -47,10 +47,6 @@ class Ui_SigningUp(object):
         self.sign_up_confirm_button.setGeometry(QtCore.QRect(330, 360, 131, 41))
         self.sign_up_confirm_button.setObjectName("sign_up_confirm_button")
 
-        self.not_all_data_status_bar = QtWidgets.QStatusBar(SigningUp)
-        self.not_all_data_status_bar.setObjectName("statusbar")
-        SigningUp.setStatusBar(self.not_all_data_status_bar)
-
         self.retranslateUi(SigningUp)
         QtCore.QMetaObject.connectSlotsByName(SigningUp)
 

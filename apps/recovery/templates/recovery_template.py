@@ -33,10 +33,6 @@ class Ui_Recovery(object):
         self.recovery_button.setGeometry(QtCore.QRect(30, 280, 113, 41))
         self.recovery_button.setObjectName("recovery_button")
 
-        self.not_all_data_status_bar = QtWidgets.QStatusBar(Recovery)
-        self.not_all_data_status_bar.setObjectName("statusbar")
-        Recovery.setStatusBar(self.not_all_data_status_bar)
-
         self.retranslateUi(Recovery)
         QtCore.QMetaObject.connectSlotsByName(Recovery)
 

@@ -1,6 +1,6 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QInputDialog, QMainWindow, QPushButton,
-                             QVBoxLayout, QWidget)
+                             QVBoxLayout, QWidget, QMessageBox)
 
 from .models import list_table_notes_model
 from .table_notes_widget import TableNotes
@@ -60,9 +60,13 @@ class ListTableNotes(QMainWindow, Ui_ListTableNotes):
                 table=self.layout.count(),
             )
         else:
-            self.not_unique_title_status_bar.showMessage(
-                'Title of the table must be unique'
+            QMessageBox.warning(
+                self,
+                'Error',
+                'Title of the table must be unique',
+                QMessageBox.Ok,
             )
+            return
 
     def change_title(self):
         title, ok_pressed = QInputDialog.getText(
@@ -77,8 +81,11 @@ class ListTableNotes(QMainWindow, Ui_ListTableNotes):
             title_of_the_table=title
         )
         if not data:
-            self.not_unique_title_status_bar.showMessage(
-                'Such table doesn\'t exist'
+            QMessageBox.warning(
+                self,
+                'Error',
+                'Such table doesn\'t exist',
+                QMessageBox.Ok,
             )
             return
 
@@ -109,8 +116,11 @@ class ListTableNotes(QMainWindow, Ui_ListTableNotes):
             title_of_the_table=title
         )
         if not data:
-            self.not_unique_title_status_bar.showMessage(
-                'Such table doesn\'t exist'
+            QMessageBox.warning(
+                self,
+                'Error',
+                'Such table doesn\'t exist',
+                QMessageBox.Ok,
             )
             return
 
