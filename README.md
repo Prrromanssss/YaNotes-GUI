@@ -42,7 +42,7 @@ Recovery their password
 
 ![Image of the recovery password](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/recovery_password.png)
 
-Then, user can see his profile
+Then, the user can see his profile
 
 ![Image of the account](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/account.png)
 
