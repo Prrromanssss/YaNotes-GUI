@@ -29,7 +29,7 @@
 
 
 ## About
-The pace of life is so frantic that a handy note-taking app is essential!!!
+####The pace of life is so frantic that a handy note-taking app is essential!!!
 
 So, this is a note-taking application written with the [PyQt5](https://doc.qt.io/qtforpython/) library.
 
