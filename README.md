@@ -46,8 +46,6 @@ Then, user can see his profile
 
 ![Image of the account](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/account.png)
 
-User can load his personal picture.
-
 There are 3 types of the notes:
 * Text notes
 * Table notes
