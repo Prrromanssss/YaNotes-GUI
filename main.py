@@ -4,7 +4,7 @@ import sys
 from asyncqt import QEventLoop
 from PyQt5.QtWidgets import QApplication
 
-from apps.calendar_notes.send_messages import send_messages
+from bot.calendar_notes.send_notes import send_messages
 from apps.sign_in.sign_in_widget import SignInWidget
 
 

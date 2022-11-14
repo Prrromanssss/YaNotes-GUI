@@ -4,7 +4,6 @@ import sys
 
 # import aiohttp
 # import telebot.async_telebot
-from aiogram import Bot, Dispatcher, executor, types
 from asyncqt import QEventLoop
 from dotenv import load_dotenv
 from PyQt5.QtWidgets import QApplication
@@ -22,8 +21,8 @@ load_dotenv()
 API_TOKEN = os.environ.get('API_TOKEN', 'summy-dummy token')
 
 # bot = telebot.async_telebot.AsyncTeleBot(API_TOKEN)
-bot = Bot(token=API_TOKEN)
-dp = Dispatcher(bot)
+# bot = Bot(token=API_TOKEN)
+# dp = Dispatcher(bot)
 
 
 # @run_async
@@ -50,12 +49,12 @@ async def print_f():
 count = 0
 
 
-@dp.message_handler(commands=['start', 'help'])
-async def send_welcome(message: types.Message):
-    """
-    This handler will be called when user sends `/start` or `/help` command
-    """
-    await message.reply("Hi!\nI'm EchoBot!\nPowered by aiogram.")
+# @dp.message_handler(commands=['start', 'help'])
+# async def send_welcome(message: types.Message):
+#     """
+#     This handler will be called when user sends `/start` or `/help` command
+#     """
+#     await message.reply("Hi!\nI'm EchoBot!\nPowered by aiogram.")
 
 
 def except_hook(cls, exception, traceback):
@@ -72,17 +71,18 @@ async def _main():
     sys.excepthook = except_hook
 
     with loop:
-        loop.run_until_complete(executor.start_polling(dp, skip_updates=True))
+        # loop.run_until_complete(executor.start_polling(dp, skip_updates=True))
 
         # loop.run_until_complete(print_f())
         loop.run_forever()
 
 
-async def main():
-    await executor.start_polling(dp, skip_updates=True)
+# async def main():
+#     await executor.start_polling(dp, skip_updates=True)
 
 
 def __main():
+    ...
     # updater = Updater(API_TOKEN, use_context=True)
 
     # dp = updater.dispatcher

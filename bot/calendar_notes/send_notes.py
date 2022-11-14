@@ -5,7 +5,7 @@ import os
 import telebot.async_telebot
 from dotenv import load_dotenv
 
-from .models import calendar_notes_model
+from apps.calendar_notes.models import calendar_notes_model
 
 load_dotenv()
 
