@@ -67,7 +67,7 @@ Each folder has 10 pages for editing: you can write some text or change the name
 ![Image 2 of the text notes](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/text_notes_pages.png)
 
 ### Table notes
-Also user can load his .csv files in this app
+Also user can load his .csv files in this app.
 You can create an unlimited number of note tables.
 
 ![Image 1 of the table notes](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/table_notes_tables.png)
