@@ -26,6 +26,7 @@
   * [Architecture of the apps folder](#architecture-of-the-apps-folder)
   * [Architecture of the bot folder](#architecture-of-the-bot-folder)
   * [The rest of the architecture](#the-rest-of-the-architecture)
+* [Examples](#)
 
 
 ## About
@@ -169,7 +170,7 @@ Each window has its own folder corresponding to its name.
 In which this structure is presented:
 * templates:
 All design files (.ui, .py) are located in templates folder.
-  * models: 
+* models: 
 This file presents work with the database, according to this structure:
   ```python
   import sqlite3
@@ -203,3 +204,7 @@ It should be noted that the api token for the bot is a virtual environment varia
 ### The rest of the architecture
 * media: User avatars are stored in this folder
 * tables: User .csv files are stored in this folder
+
+## Examples
+
+You can find some examples in the examples folder.
