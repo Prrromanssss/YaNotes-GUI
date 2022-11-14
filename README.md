@@ -142,9 +142,9 @@ python main.py
 
 ## Database
 
-This project uses the [sqlite3](https://www.sqlite.org/docs.html) database
+This project uses the [sqlite3](https://www.sqlite.org/docs.html) database.
 
-Test database for work is presented in the YaNotes.sqlite3 file
+Test database for work is presented in the YaNotes.sqlite3 file.
 
 ### ER-diagram
 
@@ -198,7 +198,7 @@ This file presents work with the database, according to this structure:
 
 ![Image of the each app](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/bot_architerture.png)
 
-All entities associated with telegram bot are in the bot folder.
+All entities associated with the telegram bot are in the bot folder.
 It should be noted that the api token for the bot is a virtual environment variable.
 
 ### The rest of the architecture
