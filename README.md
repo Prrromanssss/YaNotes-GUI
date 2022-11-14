@@ -25,8 +25,9 @@
 
 
 ## About
+The pace of life is so frantic that a handy note-taking app is essential
 
-This is a note-taking application written with the [PyQt5](https://doc.qt.io/qtforpython/) library.
+So, this is a note-taking application written with the [PyQt5](https://doc.qt.io/qtforpython/) library.
 
 ### Authorization
 Each user can sign in and use their personal notes.
@@ -138,7 +139,7 @@ python main.py
 
 This project uses the [sqlite3](https://www.sqlite.org/docs.html) database
 
-
+Test database for work is presented in the YaNotes.sqlite3 file
 
 ### ER-diagram
 
@@ -146,4 +147,55 @@ This project uses the [sqlite3](https://www.sqlite.org/docs.html) database
 
 ***
 
-### Architecture
+## Architecture
+
+In this project I tried to stick to the [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) design pattern or MTV in python.
+The project also works asynchronously with [asyncio](https://docs.python.org/3/library/asyncio.html) and [asyncqt](https://github.com/gmarull/asyncqt)
+
+### General Architecture
+
+![Image of the general architecture](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/general_architecture.png)
+
+### Architecture of the apps folder
+
+![Image of the apps folder](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/apps_folder_architecture.png)
+
+I placed all PyQt5 widgets in the apps folder.
+Each window has its own folder corresponding to its name.
+In which this structure is presented:
+* templates:
+All design files (.ui, .py) are located in templates folder.
+  * models: 
+This file presents work with the database, according to this structure:
+  ```python
+  import sqlite3
+  
+  from settings import DATABASE
+  
+  
+  class TableNameModel:
+      @staticmethod
+      def description_of_the_request(*, arg1, arg2):
+          con = sqlite3.connect(DATABASE)
+          request = ''' Some SQL request
+                    '''
+          con.execute(request)
+          con.commit()
+  ```
+  It was better to write a simple ORM, but I didn’t have enough time :(
+* widgets aka views:
+  The rest of the files ending in _widget are allegedly views that connect to load data from the database into templates, and they also contain all the functionality of this window.
+* validators
+
+![Image of the each app](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/each_app_folder_architecture.png)
+
+### Architecture of the bot folder
+
+![Image of the each app](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/bot_architerture.png)
+
+All entities associated with telegram bot are in the bot folder.
+It should be noted that the api token for the bot is a virtual environment variable.
+
+### The rest of the architecture
+* media: User avatars are stored in this folder
+* tables: User .csv files are stored in this folder
