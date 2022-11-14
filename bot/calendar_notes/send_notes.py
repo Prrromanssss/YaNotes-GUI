@@ -1,15 +1,10 @@
 import asyncio
 import datetime
-import os
 
 import telebot.async_telebot
-from dotenv import load_dotenv
 
 from apps.calendar_notes.models import calendar_notes_model
-
-load_dotenv()
-
-API_TOKEN = os.environ.get('API_TOKEN', 'summy-dummy token')
+from settings import API_TOKEN
 
 bot = telebot.TeleBot(API_TOKEN)
 

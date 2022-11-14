@@ -1,10 +1,12 @@
 import sqlite3
 
+from settings import DATABASE
+
 
 class UsersModel:
     @staticmethod
     def select_user_id(*, login):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''SELECT id FROM users
                       WHERE login = '{login}' '''
         user_id = con.execute(request).fetchone()[0]
@@ -15,7 +17,7 @@ class UsersModel:
 class TableNotesModel:
     @staticmethod
     def select_pages(*, table_id):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''SELECT page FROM table_notes
                       WHERE table_id = {table_id}
                       ORDER BY page
@@ -26,7 +28,7 @@ class TableNotesModel:
 
     @staticmethod
     def check_unique_title(*, table_id, title_of_the_page):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''SELECT id
                       FROM table_notes
                       WHERE table_id = {table_id}
@@ -38,7 +40,7 @@ class TableNotesModel:
 
     @staticmethod
     def select_file(*, entry_id):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''SELECT file
                       FROM table_notes
                       WHERE id = {entry_id}
@@ -49,7 +51,7 @@ class TableNotesModel:
 
     @staticmethod
     def update_title_of_the_page(*, entry_id, new_title):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''UPDATE table_notes
                       SET title_of_the_page = '{new_title}'
                       WHERE id = {entry_id}
@@ -59,7 +61,7 @@ class TableNotesModel:
 
     @staticmethod
     def delete_page(*, entry_id):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''DELETE FROM
                           table_notes
                       WHERE id = {entry_id}
@@ -72,7 +74,7 @@ class TableNotesModel:
         *, table_id, file, page, title_of_the_page, delimiter,
         quotechar, newline
     ):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''INSERT INTO table_notes
                           (table_id, file, page, title_of_the_page,
                            delimiter, quotechar, newline)
@@ -85,7 +87,7 @@ class TableNotesModel:
 
     @staticmethod
     def select_foreign_key_list_table_notes(*, table_id):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''SELECT table_notes.id, table_notes.file,
                                   table_notes.table_id,
                                   table_notes.page,
@@ -106,7 +108,7 @@ class TableNotesModel:
 class ListTabelNotesModel:
     @staticmethod
     def insert(*, table, title_of_the_table, login):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         user_id = users_model.select_user_id(login=login)
         request = f'''INSERT INTO list_table_notes
                           (user_id, 'table', title_of_the_table)
@@ -117,7 +119,7 @@ class ListTabelNotesModel:
 
     @staticmethod
     def select_user_id(*, login):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         user_id = users_model.select_user_id(login=login)
         request = f'''SELECT * FROM list_table_notes
                       WHERE user_id = {user_id}
@@ -129,7 +131,7 @@ class ListTabelNotesModel:
 
     @staticmethod
     def select(*, login, title_of_the_table):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         user_id = users_model.select_user_id(login=login)
         request = f'''SELECT * FROM list_table_notes
                       WHERE user_id = {user_id}
@@ -141,7 +143,7 @@ class ListTabelNotesModel:
 
     @staticmethod
     def check_unique_title(*, login, title_of_the_table):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         user_id = users_model.select_user_id(login=login)
         request = f'''SELECT id
                       FROM list_table_notes
@@ -154,7 +156,7 @@ class ListTabelNotesModel:
 
     @staticmethod
     def cascade_delete_folder(*, entry_id):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''DELETE FROM
                           list_table_notes
                       WHERE id = {entry_id}
@@ -170,7 +172,7 @@ class ListTabelNotesModel:
 
     @staticmethod
     def update_title_of_the_folder(*, entry_id, new_title):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''UPDATE list_table_notes
                       SET title_of_the_table = '{new_title}'
                       WHERE id = {entry_id}
@@ -180,7 +182,7 @@ class ListTabelNotesModel:
 
     @staticmethod
     def select_foreign_key_table_notes(*, login, title_of_the_table):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         user_id = users_model.select_user_id(login=login)
         request = f'''SELECT table_notes.id, table_notes.file,
                               table_notes.table_id,

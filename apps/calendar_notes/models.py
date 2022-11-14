@@ -1,10 +1,12 @@
 import sqlite3
 
+from settings import DATABASE
+
 
 class UsersModel:
     @staticmethod
     def select_user_id(*, login):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''SELECT id FROM users
                       WHERE login = '{login}' '''
         user_id = con.execute(request).fetchone()[0]
@@ -15,7 +17,7 @@ class UsersModel:
 class CalendarNotesModel:
     @staticmethod
     def select_all():
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = '''SELECT * FROM calendar_notes
                   '''
         data = con.execute(request).fetchall()
@@ -24,7 +26,7 @@ class CalendarNotesModel:
 
     @staticmethod
     def delete_entry(*, entry_id):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''DELETE
                       FROM calendar_notes
                       WHERE id = {entry_id}
@@ -34,7 +36,7 @@ class CalendarNotesModel:
 
     @staticmethod
     def insert(*, login, event, gmt, datetime, flag_to_send):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         user_id = users_model.select_user_id(login=login)
         request = f'''INSERT INTO calendar_notes
                          (user_id, event, gmt, datetime, flag_to_send)
@@ -47,7 +49,7 @@ class CalendarNotesModel:
 
     @staticmethod
     def update_flag_to_send(*, login, flag_to_send):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         user_id = users_model.select_user_id(login=login)
         request = f'''UPDATE calendar_notes
                       SET flag_to_send = {flag_to_send}
@@ -58,7 +60,7 @@ class CalendarNotesModel:
 
     @staticmethod
     def select(*, login):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         user_id = users_model.select_user_id(login=login)
         request = f'''SELECT * FROM calendar_notes
                       WHERE user_id = {user_id}
@@ -69,7 +71,7 @@ class CalendarNotesModel:
 
     @staticmethod
     def update_chat_id(*, chat_id, login):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         user_id = users_model.select_user_id(login=login)
         request = f'''UPDATE calendar_notes
                       SET chat_id = {chat_id}

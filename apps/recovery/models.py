@@ -1,10 +1,12 @@
 import sqlite3
 
+from settings import DATABASE
+
 
 class UsersModel:
     @staticmethod
     def update_password_of_the_user(*, login, password):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''UPDATE users
                       SET password = '{password}'
                       WHERE login = '{login}' '''
@@ -13,7 +15,7 @@ class UsersModel:
 
     @staticmethod
     def select_all_user_data(*, login):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''SELECT * FROM users
                       WHERE login = '{login}'
                    '''

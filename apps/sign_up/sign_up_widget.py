@@ -2,6 +2,8 @@ import sqlite3
 
 from PyQt5.QtWidgets import QLineEdit, QMainWindow, QMessageBox
 
+from settings import DATABASE
+
 from ..account.account_widget import AccountWidget
 from ..core.exceptions import ValidationError
 from .models import users_model
@@ -23,7 +25,7 @@ class SignUpWidget(QMainWindow, Ui_SigningUp):
         self.form = None
 
     def registrate_user(self):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
 
         login = self.login_sign_up_edit.text()
         password1 = self.password_sign_up_edit.text()

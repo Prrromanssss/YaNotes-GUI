@@ -2,6 +2,8 @@ import sqlite3
 
 from PyQt5.QtWidgets import QLineEdit, QMainWindow, QMessageBox
 
+from settings import DATABASE
+
 from ..account.account_widget import AccountWidget
 from ..core.exceptions import ValidationError
 from .models import users_model
@@ -22,7 +24,7 @@ class RecoveryWidget(QMainWindow, Ui_Recovery):
         self.form = None
 
     def recovery(self):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         login = self.login_recovery_edit.text()
         password1 = self.password_recovery_edit.text()
         password2 = self.password2_recovery_edit.text()

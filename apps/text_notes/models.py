@@ -1,10 +1,12 @@
 import sqlite3
 
+from settings import DATABASE
+
 
 class UsersModel:
     @staticmethod
     def select_user_id(*, login):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''SELECT id FROM users
                       WHERE login = '{login}' '''
         user_id = con.execute(request).fetchone()[0]
@@ -15,7 +17,7 @@ class UsersModel:
 class TextNotesModel:
     @staticmethod
     def page_already_exist(*, folder_id, page):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''SELECT id FROM text_notes
                       WHERE folder_id = {folder_id}
                       AND page = {page}
@@ -26,7 +28,7 @@ class TextNotesModel:
 
     @staticmethod
     def insert(*, text, folder_id, page, title_of_the_page):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
 
         data = text_notes_model.page_already_exist(
             folder_id=folder_id,
@@ -49,7 +51,7 @@ class TextNotesModel:
 
     @staticmethod
     def select(*, folder_id):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''SELECT * FROM text_notes
                       WHERE folder_id = {folder_id}
                       ORDER BY page
@@ -60,7 +62,7 @@ class TextNotesModel:
 
     @staticmethod
     def update_title_of_the_page(*, folder_id, title_of_the_page, page):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''UPDATE text_notes
                       SET title_of_the_page = '{title_of_the_page}'
                       WHERE folder_id = {folder_id} AND page = {page}'''
@@ -71,7 +73,7 @@ class TextNotesModel:
 class ListTextNotesModel:
     @staticmethod
     def insert(*, folder, title_of_the_folder, login):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         user_id = users_model.select_user_id(login=login)
         request = f'''INSERT INTO list_text_notes
                           (user_id, folder, title_of_the_folder)
@@ -82,7 +84,7 @@ class ListTextNotesModel:
 
     @staticmethod
     def select(*, login):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         user_id = users_model.select_user_id(login=login)
         request = f'''SELECT * FROM list_text_notes
                       WHERE user_id = {user_id}
@@ -94,7 +96,7 @@ class ListTextNotesModel:
 
     @staticmethod
     def select_foreign_key_text_notes(*, login, title_of_the_folder):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         user_id = users_model.select_user_id(login=login)
         request = f'''SELECT text_notes.id, text_notes.text,
                           text_notes.folder_id,
@@ -113,7 +115,7 @@ class ListTextNotesModel:
 
     @staticmethod
     def check_unique_title(*, login, title_of_the_folder):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         user_id = users_model.select_user_id(login=login)
         request = f'''SELECT id
                      FROM list_text_notes
@@ -126,7 +128,7 @@ class ListTextNotesModel:
 
     @staticmethod
     def update_title_of_the_folder(*, entry_id, new_title):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''UPDATE list_text_notes
                       SET title_of_the_folder = '{new_title}'
                       WHERE id = {entry_id}
@@ -136,7 +138,7 @@ class ListTextNotesModel:
 
     @staticmethod
     def cascade_delete_folder(*, entry_id):
-        con = sqlite3.connect('YaNotes.sqlite3')
+        con = sqlite3.connect(DATABASE)
         request = f'''DELETE FROM
                           list_text_notes
                       WHERE id = {entry_id}
