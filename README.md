@@ -22,11 +22,11 @@
 * [Database](#database)
   * [ER-diagram](#er-diagram)
 * [Architecture](#architecture)
-  * [General architecture](#general-architecture)
-  * [Architecture of the apps folder](#architecture-of-the-apps-folder)
-  * [Architecture of the bot folder](#architecture-of-the-bot-folder)
-  * [The rest of the architecture](#the-rest-of-the-architecture)
-* [Examples](#)
+* [Structure](#structure)
+  * [Structure of the apps folder](#structure-of-the-apps-folder)
+  * [Structure of the bot folder](#structure-of-the-bot-folder)
+  * [The rest of the structure](#the-rest-of-the-structure)
+* [Examples](#examples)
 
 
 ## About
@@ -157,13 +157,15 @@ Test database for work is presented in the YaNotes.sqlite3 file.
 In this project I tried to stick to the [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) software architectural pattern or MTV in python.
 The project also works asynchronously with [asyncio](https://docs.python.org/3/library/asyncio.html) and [asyncqt](https://github.com/gmarull/asyncqt).
 
-### General Architecture
+***
 
-![Image of the general architecture](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/general_architecture.png)
+## Structure
 
-### Architecture of the apps folder
+![Image of the general architecture](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/general_structure.png)
 
-![Image of the apps folder](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/apps_folder_architecture.png)
+### Structure of the apps folder
+
+![Image of the apps folder](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/apps_folder_structure.png)
 
 I placed all PyQt5 widgets in the apps folder.
 Each window has its own folder corresponding to its name.
@@ -192,16 +194,16 @@ This file presents work with the database, according to this structure:
   The rest of the files ending in _widget are allegedly views that connect to load data from the database into templates, and they also contain all the functionality of this window.
 * validators
 
-![Image of the each app](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/each_app_folder_architecture.png)
+![Image of the each app](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/each_app_folder_structure.png)
 
-### Architecture of the bot folder
+### Structure of the bot folder
 
-![Image of the each app](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/bot_architerture.png)
+![Image of the each app](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/bot_structure.png)
 
 All entities associated with the telegram bot are in the bot folder.
 It should be noted that the api token for the bot is a virtual environment variable.
 
-### The rest of the architecture
+### The rest of the structure
 * media: User avatars are stored in this folder
 * tables: User .csv files are stored in this folder
 
