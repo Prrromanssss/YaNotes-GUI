@@ -153,7 +153,7 @@ Test database for work is presented in the YaNotes.sqlite3 file
 
 ## Architecture
 
-In this project I tried to stick to the [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) design pattern or MTV in python.
+In this project I tried to stick to the [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) software architectural pattern or MTV in python.
 The project also works asynchronously with [asyncio](https://docs.python.org/3/library/asyncio.html) and [asyncqt](https://github.com/gmarull/asyncqt)
 
 ### General Architecture
