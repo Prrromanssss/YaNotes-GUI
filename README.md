@@ -22,6 +22,10 @@
 * [Database](#database)
   * [ER-diagram](#er-diagram)
 * [Architecture](#architecture)
+  * [General architecture](#general-architecture)
+  * [Architecture of the apps folder](#architecture-of-the-apps-folder)
+  * [Architecture of the bot folder](#architecture-of-the-bot-folder)
+  * [The rest of the architecture](#the-rest-of-the-architecture)
 
 
 ## About
