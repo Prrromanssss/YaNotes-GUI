@@ -67,7 +67,7 @@ You can create an unlimited number of note tables.
 ![Image 1 of the table notes](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/table_notes_tables.png)
 
 
-Load your .csv files with appropriate configuration of the file. Follow this link to understand what setting is responsible for [CSV File Reading and Writing in Python](https://docs.python.org/3/library/csv.html)
+Load your .csv files with appropriate configuration of the file. Follow this link to understand what setting is responsible for [CSV File Reading and Writing in Python](https://docs.python.org/3/library/csv.html).
 
 ![Image 2 of the table notes](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/table_notes_pages.png)
 
@@ -84,7 +84,7 @@ So, you can set some notifications in these notes to receive them in the bot.
 When notes began to refer to a date in the past, they are automatically deleted.
 
 
-![Image of the calendar notes](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/table_notes_pages.png)
+![Image of the calendar notes](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/calendar_notes.png)
 
 ***
 
