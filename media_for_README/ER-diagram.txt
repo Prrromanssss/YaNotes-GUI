@@ -1,0 +1,50 @@
+calendar_notes
+-
+ID integer pk
+event text
+datetime datetime
+gmt integer
+chat_id integer
+user_id bigint FK >- users.ID
+flag_to_send boolean
+
+list_table_notes
+-
+ID integer pk
+user_id bigint FK >- users.ID
+table integer
+title_of_the_table text
+
+list_text_notes
+-
+ID integer pk
+user_id bigint FK >- users.ID
+folder integer
+title_of_the_folder text
+
+table_notes
+-
+ID integer pk
+file text
+table_id bigint FK >- list_table_notes.ID
+page integer
+title_of_the_page text
+delimiter char
+quotechar char
+newline char
+
+text_notes
+-
+ID integer pk
+text text
+folder_id bigint FK >- list_text_notes.ID
+page integer
+title_of_the_page text
+
+users
+-
+ID integer
+login text
+password text
+email text
+image varchar

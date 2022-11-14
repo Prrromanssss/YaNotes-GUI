@@ -1,4 +1,6 @@
-# YaNotes
+<div align="center">
+  <h1><span style="color:red">Ya</span>Notes</h1>
+</div>
 
 
 ![flake8 test](https://github.com/Prrromanssss/NotesPyQt_GUI/actions/workflows/python-package.yml/badge.svg)
