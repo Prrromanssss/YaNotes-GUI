@@ -70,7 +70,3 @@ class AccountWidget(QMainWindow, Ui_Account):
         self.form = CalendarNotes(login, self.email_edit.text(), self.image)
         self.form.show()
         self.hide()
-
-    def back_to_sign_in(self):
-        ...
-        # ToDo:  button to go back to sign in
