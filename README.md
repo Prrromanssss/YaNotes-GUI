@@ -7,6 +7,12 @@
 
 
 
+## Contents
+
+* [Deployment instructions](#deployment-instructions)
+* [Entity-Relationship model](#er-diagram)
+
+
 ## Deployment instructions
 
 
