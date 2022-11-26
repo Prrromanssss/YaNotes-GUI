@@ -3,7 +3,7 @@
 </div>
 
 
-![flake8 test](https://github.com/Prrromanssss/NotesPyQt_GUI/actions/workflows/python-package.yml/badge.svg)
+![flake8 test](https://github.com/Prrromanssss/YaNotes-GUI/actions/workflows/python-package.yml/badge.svg)
 
 
 
@@ -37,20 +37,20 @@ So, this is a note-taking application written with the [PyQt5](https://doc.qt.io
 ### Authorization
 Each user can sign in and use their personal notes.
 
-![Image of the signing in](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/sign_in.png)
+![Image of the signing in](https://github.com/Prrromanssss/YaNotes-GUI/raw/main/media_for_README/sign_in.png)
 
 Sign up
 
-![Image of the signing up](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/sign_up.png)
+![Image of the signing up](https://github.com/Prrromanssss/YaNotes-GUI/raw/main/media_for_README/sign_up.png)
 
 
 Recovery their password
 
-![Image of the recovery password](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/recovery_password.png)
+![Image of the recovery password](https://github.com/Prrromanssss/YaNotes-GUI/raw/main/media_for_README/recovery_password.png)
 
 Then, the user can see his profile
 
-![Image of the account](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/account.png)
+![Image of the account](https://github.com/Prrromanssss/YaNotes-GUI/raw/main/media_for_README/account.png)
 
 There are 3 types of the notes:
 * Text notes
@@ -60,22 +60,22 @@ There are 3 types of the notes:
 ### Text notes
 The user can create an unlimited number of note folders.
 
-![Image 1 of the text notes](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/text_notes_folders.png)
+![Image 1 of the text notes](https://github.com/Prrromanssss/YaNotes-GUI/raw/main/media_for_README/text_notes_folders.png)
 
 Each folder has 10 pages for editing: you can write some text or change the name of the page on which you write. Click "save page" to save your edits.
 
-![Image 2 of the text notes](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/text_notes_pages.png)
+![Image 2 of the text notes](https://github.com/Prrromanssss/YaNotes-GUI/raw/main/media_for_README/text_notes_pages.png)
 
 ### Table notes
 Also user can load his .csv files in this app.
 You can create an unlimited number of note tables.
 
-![Image 1 of the table notes](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/table_notes_tables.png)
+![Image 1 of the table notes](https://github.com/Prrromanssss/YaNotes-GUI/raw/main/media_for_README/table_notes_tables.png)
 
 
 Load your .csv files with appropriate configuration of the file. Follow this link to understand what setting is responsible for [CSV File Reading and Writing in Python](https://docs.python.org/3/library/csv.html).
 
-![Image 2 of the table notes](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/table_notes_pages.png)
+![Image 2 of the table notes](https://github.com/Prrromanssss/YaNotes-GUI/raw/main/media_for_README/table_notes_pages.png)
 
 
 ### Calendar notes
@@ -90,7 +90,7 @@ So, you can set some notifications in these notes to receive them in the bot.
 When notes began to refer to a date in the past, they are automatically deleted.
 
 
-![Image of the calendar notes](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/calendar_notes.png)
+![Image of the calendar notes](https://github.com/Prrromanssss/YaNotes-GUI/raw/main/media_for_README/calendar_notes.png)
 
 ***
 
@@ -101,7 +101,7 @@ When notes began to refer to a date in the past, they are automatically deleted.
 
 1.1 Run this command
 ```commandline
-git clone https://github.com/Prrromanssss/NotesPyQt_GUI.git
+git clone https://github.com/Prrromanssss/YaNotes-GUI.git
 ```
 
 ### 2. Creation and activation venv
@@ -148,7 +148,7 @@ Test database for work is presented in the YaNotes.sqlite3 file.
 
 ### ER-diagram
 
-![Image of the ER-diagram](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/ER-diagram.png)
+![Image of the ER-diagram](https://github.com/Prrromanssss/YaNotes-GUI/raw/main/media_for_README/ER-diagram.png)
 
 ***
 
@@ -161,11 +161,11 @@ The project also works asynchronously with [asyncio](https://docs.python.org/3/l
 
 ## Structure
 
-![Image of the general architecture](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/general_structure.png)
+![Image of the general architecture](https://github.com/Prrromanssss/YaNotes-GUI/raw/main/media_for_README/general_structure.png)
 
 ### Structure of the apps folder
 
-![Image of the apps folder](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/apps_folder_structure.png)
+![Image of the apps folder](https://github.com/Prrromanssss/YaNotes-GUI/raw/main/media_for_README/apps_folder_structure.png)
 
 I placed all PyQt5 widgets in the apps folder.
 Each window has its own folder corresponding to its name.
@@ -194,11 +194,11 @@ This file presents work with the database, according to this structure:
   The rest of the files ending in _widget are allegedly views that connect to load data from the database into templates, and they also contain all the functionality of this window.
 * validators
 
-![Image of the each app](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/each_app_folder_structure.png)
+![Image of the each app](https://github.com/Prrromanssss/YaNotes-GUI/raw/main/media_for_README/each_app_folder_structure.png)
 
 ### Structure of the bot folder
 
-![Image of the each app](https://github.com/Prrromanssss/NotesPyQt_GUI/raw/main/media_for_README/bot_structure.png)
+![Image of the each app](https://github.com/Prrromanssss/YaNotes-GUI/raw/main/media_for_README/bot_structure.png)
 
 All entities associated with the telegram bot are in the bot folder.
 It should be noted that the api token for the bot is a virtual environment variable.
